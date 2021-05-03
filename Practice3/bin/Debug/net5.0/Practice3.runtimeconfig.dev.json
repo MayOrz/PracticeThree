@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/home/mayra/.dotnet/store/|arch|/|tfm|",
+      "/home/mayra/.nuget/packages"
+    ]
+  }
+}
