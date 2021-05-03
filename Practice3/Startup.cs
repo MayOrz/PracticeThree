@@ -16,13 +16,17 @@ namespace Practice3
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+       public IConfiguration Configuration { get; }
+
+        public Startup(Microsoft.Extensions.Hosting.IHostingEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder().SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json")
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json")
+                .AddEnvironmentVariables();
+
+            Configuration = builder.Build();
         }
-
-        public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -57,3 +61,4 @@ namespace Practice3
         }
     }
 }
+
