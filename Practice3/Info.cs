@@ -2,7 +2,7 @@ using System;
 
 namespace Practice3
 {
-    public class WeatherForecast
+    public class Info
     {
         public DateTime Date { get; set; }
 
